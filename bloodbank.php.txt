@@ -1,0 +1,56 @@
+<html>
+	<title>Blood Bank Application</title>
+	<body bgcolor='lightblue'>
+	<center>
+		<h1>Blood Bank Application</h1>
+		<form method="post">
+			<h3>please enter the donor details</h3>
+			 Name: <input type='text' size='30' name='dname' required><br><br>
+			 Age: <input type='number' name='age' required><br><br>
+			 Address: <textarea name='add'></textarea><br><br>
+			 Email-Id: <input type='text' name='mail' required><br><br>
+			 Mobile: <input type='number' name='pno' size='10' required><br><br>
+			 Blood Group: <input type='text' size='5'name='bgrp' required><br><br>
+			Gender: <input type='text' size='10' name='gender' required><br><br>			
+		</form>
+		<input type='submit' name='submit' value='SUBMIT'>
+		<input type='button' name='list' value='LIST DONORS'>
+		
+	</center>		
+	</body>
+
+</html>
+
+<?php
+	require(dbconfig.php)
+	if(isset($_POST['submit']))
+	{
+		$name=$_POST['dname']
+		$age=$_POST['age']
+		$add=$_POST['add']
+		$mail=$_POSt['mail']
+		$mobile=$_POST['pno']
+		$Bgroup=$_POST['bgrp']
+		$gender=$_POST['gender']
+
+		$sql='insert into Bloodbank('name,'age','address','mail','mobile','bloodgroup','gender')
+				 values($name,$age,$add,$mail,$mobile,$Bgroup,$gender)'
+
+		if($db->query(sql))
+		{
+			echo "Insertion Successfull"
+			
+		}
+		else
+		{
+			echo "Insertion unsuccessfull"
+			header("Location:bloodbank.php")
+		}	
+	}
+
+	if(isset($_POST['list'])
+	{
+		header("Location:List.php")
+	}
+
+?>

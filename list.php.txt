@@ -1,0 +1,14 @@
+<?php
+
+	$sql='SELECT * FROM Bloodbank'
+	$res=$db->query($sql)
+
+	if(($res->num_rows)>0)
+	{
+
+	}
+	else
+	{
+		echo "No Donors Found"
+	}
+?>
